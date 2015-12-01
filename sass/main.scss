@@ -1,21 +1,8 @@
 //cd documents\assignments\github\sass-conversion
 //sass --watch sass\:css\
-$font-default: 'Josefin Sans', ‘Trebuchet MS’, Helvetica, sans-serif;
-$font-heading: Cardo, ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
-
-$color-lightblue: #C7F7FF;// main SASS file
-$color-midblue: #89C0C9;
-$color-darkblue: #3a5E63;
-$color-lightbrown: #C9A689;
-$color-darkbrown: #7C593C;
-$color-lightgrey: #d4d4d4;
-$color-darkgrey: #222;
-
-$breakpoint-small: 701px;
-$breakpoint-medium: 900px;
-$breakpoint-large: 1400px;
-
-
+@import 'variables';
+@import 'queries';
+@import 'mixins';
 
 *{
   padding:0;
@@ -87,7 +74,7 @@ ul{
   color: $color-darkblue;
 }
 .bg-footer{
-  background-color: #fff;
+  @extend .bg-content1;
   color: $color-lightgrey;
   }
           
@@ -114,13 +101,13 @@ section.content1{
   padding: 2rem 0;
 }
 section.content2{
-  padding:2rem 0;    
+  @extend section.content1;    
 }
 .row{
   clear: both;
 }
 .col-2{
-  width:50%;
+  @include equalSpaced(2, 2%, 100%);
   float:left;
   padding-bottom: 2rem;
   border-left:1px solid $color-darkblue;
@@ -130,15 +117,13 @@ footer .col-2:first-child{
   border-left: 0;
 }
 footer{
-  padding:2rem 0;
-}
-footer p:last-child{
+  @extend section.content1;
 }
 /***********************************************
             NAVIGATION
 ***********************************************/
 header nav{
-  padding:2rem 0;
+  @extend section.content1;
   clear: both;
 
   ul li a{
@@ -166,16 +151,18 @@ header nav{
 header h1{
   color: $color-darkbrown;
   letter-spacing: 0.1rem;
+  font-size: 3.998rem;
+  text-align: left;
 
   i.fa-lg{
     display:block;
     width: 25%;
     float:left;
-    font-size: 7rem;
+    font-size: 5rem;
     line-height: 12.7936rem;
     color: $color-lightbrown;
 
-    i.fa-lg ~ span{
+    &:span{
       float: right;
       width: 75%;
       font-size: 3.998rem;
@@ -255,7 +242,9 @@ footer {
             display:none;
           }
 }
-  @media all and (min-width: $breakpoint-small) and (max-width:$breakpoint-medium){
+
+   
+@include small(){
     header {
       width: $breakpoint-small - 1;
       margin: 0 auto;
@@ -264,11 +253,9 @@ footer {
       h1 {
         width: 100%;
         color: $color-darkbrown;
+        font-size: 3.998rem;
 
-        header:before, header:after {
-          width:230px;
-
-          i.fa-lg {
+        i.fa-lg {
             display:inline;
             color: $color-darkbrown;
             vertical-align:baseline;
@@ -276,7 +263,7 @@ footer {
             font-size: 4rem;
             line-height: 6.3968rem;
 
-            i.fa-lg ~ span{
+            &:span{
               float: none;
               letter-spacing: 0.25rem;
               font-size: 3.998rem;
@@ -304,6 +291,9 @@ footer {
 
                   &:last-child{
                     border-right:1px solid $color-lightgrey;
+          
+                    header:before, header:after{
+                      width:230px;
                     }
                   }
                 }
@@ -318,7 +308,7 @@ footer {
       margin: 0 auto;    
     }
     .col-4{
-      width:50%;
+      @include equalSpaced(4, 2%, 100%);
       float:left;
     }
     section.content2 h4{
@@ -341,19 +331,17 @@ footer {
       display:none;
     }
   }
-  @media all and ($breakpoint-medium + 1) and ($breakpoint-large){
+  @include medium(){
     header{
       width: $breakpoint-medium;
       margin: 0 auto;
     
-      &:before, &:after{
-        width:300px;
-    
-        h1{
-          width: 100%;
-          color: $color-darkblue;
-
-          i.fa-lg{
+      h1{
+        width: 100%;
+        color: $color-darkblue;
+        font-size: 3.998rem;
+          
+        i.fa-lg{
             display:inline;
             color: $color-darkblue;
             vertical-align:baseline;
@@ -361,11 +349,10 @@ footer {
             font-size: 4rem;
             line-height: 6.3968rem;
 
-            i.fa-lg ~ span{
+            &:span{
               float: none;
               letter-spacing: 0.25rem;
               font-size: 3.998rem;
-        /**1 lines of 3.998 * 1.6 = 6.3968**/
               text-align: left;
 
               nav{
@@ -391,6 +378,9 @@ footer {
 
                     li:first-child a{
                       border-left:none;
+          
+                        header:before, header:after{
+                          width:300px;
                     }
                   }
                 }
@@ -417,14 +407,14 @@ footer {
     }
     .col-3{
       float:left;
-      width: 30%;
+      @include equalSpaced(3, 2%, 100%);
       margin-left: 5%;
     }
     .col-3:first-child{
       margin-left: 0;
     }
     .col-4{
-      width:22%;
+      @include equalSpaced(4, 2%, 100%);
       margin-left: 4%;
       float:left;
     }
@@ -462,20 +452,17 @@ footer {
     }
 }
 
-  @media all and (min-width:$breakpoint-large + 1){
+  @include large(){
     header{
       width: $breakpoint-large;
       margin:0 auto;
 
-      header:before,
-      header:after{
-        width:450px;
-
-        h1{
-          width: 100%;
-          color: $color-darkbrown;
-
-          i.fa-lg{
+     h1{
+        width: 100%;
+        color: $color-darkbrown;
+        font-size: 4.998rem;
+         
+        i.fa-lg{
             display:inline;
             color: $color-darkbrown;
             vertical-align:baseline;
@@ -483,12 +470,12 @@ footer {
             font-size: 4rem;
             line-height: 6.3968rem;
 
-            i.fa-lg ~ span{
+            &:span{
               float: none;
               letter-spacing: 0.25rem;
               font-size: 3.998rem;
         /**1 lines of 3.998 * 1.6 = 6.3968**/
-              text-align: left;
+              text-align: center;
 
               nav{
                 position: static;
@@ -496,7 +483,7 @@ footer {
                 width: 100%;
                 padding: 0;
 
-                ul li {
+                ul li{
                   width:20%;
                   float: left;
                   background-color: #fff;
@@ -513,6 +500,9 @@ footer {
 
                     li:first-child a{
                       border-left:none;
+                      
+                      header:before, header:after{
+                        width:450px;
                     }
                   }
                 }
@@ -540,15 +530,13 @@ footer {
     }
     .col-3{
       float:left;
-      width: 30%;
-      margin-left: 5%;
+      @include equalSpaced(3, 2%, 100%);
     }
     .col-3:first-child{
       margin-left: 0;
     }
     .col-4{
-      width:22%;
-      margin-left: 4%;
+      @include equalSpaced(4, 2%, 100%);
       float:left;
     }
     .col-4:first-child{
@@ -574,18 +562,17 @@ footer {
       font-weight: 400;
     }
     footer p{
-    font-size: 1.414rem;
-    letter-spacing: 0.2rem;
-    
-    &:last-child{
-    color: $color-lightgrey;
+      font-size: 1.414rem;
+      letter-spacing: 0.2rem;
     }
-}
+    footer p:last-child{
+      color: $color-lightgrey;
+    }
     footer .fa-circle{
       color: $color-midblue;
     }
     footer h4[lang=en]{
-      display:block; 
+      display:block;
     }
     footer h4[lang=de], footer h4[lang=ar], footer h4[lang=ru] {
       display:none;

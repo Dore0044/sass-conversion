@@ -60,7 +60,7 @@ ul {
   background-color: #C9A689;
   color: #7C593C; }
 
-.bg-content1 {
+.bg-content1, .bg-footer {
   background-color: #fff;
   color: #222; }
 
@@ -69,7 +69,6 @@ ul {
   color: #3a5E63; }
 
 .bg-footer {
-  background-color: #fff;
   color: #d4d4d4; }
 
 header {
@@ -89,33 +88,30 @@ section.focal {
   /* default */
   margin: 0 auto; }
 
-section.content1 {
-  padding: 2rem 0; }
-
-section.content2 {
+section.content1, section.content2, footer, header nav {
   padding: 2rem 0; }
 
 .row {
   clear: both; }
 
 .col-2 {
-  width: 50%;
+  width: 49%;
+  margin-left: 2%;
+  float: left;
   float: left;
   padding-bottom: 2rem;
   border-left: 1px solid #3a5E63;
   margin-bottom: 2rem; }
+  .col-2:first-child {
+    margin-left: 0; }
 
 footer .col-2:first-child {
   border-left: 0; }
-
-footer {
-  padding: 2rem 0; }
 
 /***********************************************
             NAVIGATION
 ***********************************************/
 header nav {
-  padding: 2rem 0;
   clear: both; }
   header nav ul li a {
     display: block;
@@ -138,15 +134,17 @@ header nav {
 ***********************************************/
 header h1 {
   color: #7C593C;
-  letter-spacing: 0.1rem; }
+  letter-spacing: 0.1rem;
+  font-size: 3.998rem;
+  text-align: left; }
   header h1 i.fa-lg {
     display: block;
     width: 25%;
     float: left;
-    font-size: 7rem;
+    font-size: 5rem;
     line-height: 12.7936rem;
     color: #C9A689; }
-    header h1 i.fa-lg i.fa-lg ~ span {
+    header h1 i.fa-lg:span {
       float: right;
       width: 75%;
       font-size: 3.998rem;
@@ -202,55 +200,60 @@ footer h4[lang=de] {
 footer h4[lang=en], footer h4[lang=ar], footer h4[lang=ru] {
   display: none; }
 
-@media all and (min-width: 701px) and (max-width: 900px) {
+@media all and (min-width: 596px) and (max-width: 900px) {
   header {
     width: 700px;
     margin: 0 auto;
     min-height: 8rem; }
     header h1 {
       width: 100%;
-      color: #7C593C; }
-      header h1 header:before, header h1 header:after {
-        width: 230px; }
-        header h1 header:before i.fa-lg, header h1 header:after i.fa-lg {
-          display: inline;
-          color: #7C593C;
-          vertical-align: baseline;
+      color: #7C593C;
+      font-size: 3.998rem; }
+      header h1 i.fa-lg {
+        display: inline;
+        color: #7C593C;
+        vertical-align: baseline;
+        float: none;
+        font-size: 4rem;
+        line-height: 6.3968rem; }
+        header h1 i.fa-lg:span {
           float: none;
-          font-size: 4rem;
-          line-height: 6.3968rem; }
-          header h1 header:before i.fa-lg i.fa-lg ~ span, header h1 header:after i.fa-lg i.fa-lg ~ span {
-            float: none;
-            letter-spacing: 0.25rem;
-            font-size: 3.998rem;
-            /**1 lines of 3.998 * 1.6 = 6.3968**/
-            text-align: left; }
-            header h1 header:before i.fa-lg i.fa-lg ~ span nav, header h1 header:after i.fa-lg i.fa-lg ~ span nav {
-              position: static;
-              clear: both;
-              width: 100%;
-              padding: 0; }
-              header h1 header:before i.fa-lg i.fa-lg ~ span nav ul li, header h1 header:after i.fa-lg i.fa-lg ~ span nav ul li {
-                width: 20%;
-                float: left; }
-                header h1 header:before i.fa-lg i.fa-lg ~ span nav ul li a, header h1 header:after i.fa-lg i.fa-lg ~ span nav ul li a {
-                  font-size: 1rem;
-                  line-height: 2rem;
-                  min-height: 6rem;
-                  border: none;
-                  border-left: 1px solid #d4d4d4;
-                  padding: 1.0rem;
-                  background-color: #fff; }
-                  header h1 header:before i.fa-lg i.fa-lg ~ span nav ul li a:last-child, header h1 header:after i.fa-lg i.fa-lg ~ span nav ul li a:last-child {
-                    border-right: 1px solid #d4d4d4; }
+          letter-spacing: 0.25rem;
+          font-size: 3.998rem;
+          /**1 lines of 3.998 * 1.6 = 6.3968**/
+          text-align: left; }
+          header h1 i.fa-lg:span nav {
+            position: static;
+            clear: both;
+            width: 100%;
+            padding: 0; }
+            header h1 i.fa-lg:span nav ul li {
+              width: 20%;
+              float: left; }
+              header h1 i.fa-lg:span nav ul li a {
+                font-size: 1rem;
+                line-height: 2rem;
+                min-height: 6rem;
+                border: none;
+                border-left: 1px solid #d4d4d4;
+                padding: 1.0rem;
+                background-color: #fff; }
+                header h1 i.fa-lg:span nav ul li a:last-child {
+                  border-right: 1px solid #d4d4d4; }
+                  header h1 i.fa-lg:span nav ul li a:last-child header:before, header h1 i.fa-lg:span nav ul li a:last-child header:after {
+                    width: 230px; }
 
-  section.focal, section.content1, section.content2, footer {
+  section.focal, section.content1, section.content2, footer, header nav, section.content2, footer {
     width: 700px;
     margin: 0 auto; }
 
   .col-4 {
-    width: 50%;
+    width: 23.5%;
+    margin-left: 2%;
+    float: left;
     float: left; }
+    .col-4:first-child {
+      margin-left: 0; }
 
   section.content2 h4 {
     font-size: 1.414rem; }
@@ -270,51 +273,54 @@ footer h4[lang=en], footer h4[lang=ar], footer h4[lang=ru] {
 
   footer h4[lang=de], footer h4[lang=en], footer h4[lang=ru] {
     display: none; } }
-@media all and (901px) and (1400px) {
+@media all and (min-width: 901px) and (max-width: 1400px) {
   header {
     width: 900px;
     margin: 0 auto; }
-    header:before, header:after {
-      width: 300px; }
-      header:before h1, header:after h1 {
-        width: 100%;
-        color: #3a5E63; }
-        header:before h1 i.fa-lg, header:after h1 i.fa-lg {
-          display: inline;
-          color: #3a5E63;
-          vertical-align: baseline;
+    header h1 {
+      width: 100%;
+      color: #3a5E63;
+      font-size: 3.998rem; }
+      header h1 i.fa-lg {
+        display: inline;
+        color: #3a5E63;
+        vertical-align: baseline;
+        float: none;
+        font-size: 4rem;
+        line-height: 6.3968rem; }
+        header h1 i.fa-lg:span {
           float: none;
-          font-size: 4rem;
-          line-height: 6.3968rem; }
-          header:before h1 i.fa-lg i.fa-lg ~ span, header:after h1 i.fa-lg i.fa-lg ~ span {
-            float: none;
-            letter-spacing: 0.25rem;
-            font-size: 3.998rem;
-            /**1 lines of 3.998 * 1.6 = 6.3968**/
-            text-align: left; }
-            header:before h1 i.fa-lg i.fa-lg ~ span nav, header:after h1 i.fa-lg i.fa-lg ~ span nav {
-              position: static;
-              clear: both;
-              width: 100%;
-              padding: 0; }
-              header:before h1 i.fa-lg i.fa-lg ~ span nav ul li, header:after h1 i.fa-lg i.fa-lg ~ span nav ul li {
-                width: 20%;
-                float: left;
+          letter-spacing: 0.25rem;
+          font-size: 3.998rem;
+          text-align: left; }
+          header h1 i.fa-lg:span nav {
+            position: static;
+            clear: both;
+            width: 100%;
+            padding: 0; }
+            header h1 i.fa-lg:span nav ul li {
+              width: 20%;
+              float: left;
+              background-color: #fff; }
+              header h1 i.fa-lg:span nav ul li a {
+                font-size: 1rem;
+                line-height: 2rem;
+                min-height: 2rem;
+                border: none;
+                border-left: 1px solid #d4d4d4;
+                padding: 0 1.0rem;
+                margin: 1.0rem 0;
                 background-color: #fff; }
-                header:before h1 i.fa-lg i.fa-lg ~ span nav ul li a, header:after h1 i.fa-lg i.fa-lg ~ span nav ul li a {
-                  font-size: 1rem;
-                  line-height: 2rem;
-                  min-height: 2rem;
-                  border: none;
-                  border-left: 1px solid #d4d4d4;
-                  padding: 0 1.0rem;
-                  margin: 1.0rem 0;
-                  background-color: #fff; }
-                  header:before h1 i.fa-lg i.fa-lg ~ span nav ul li a li:first-child a, header:after h1 i.fa-lg i.fa-lg ~ span nav ul li a li:first-child a {
-                    border-left: none; }
+                header h1 i.fa-lg:span nav ul li a li:first-child a {
+                  border-left: none; }
+                  header h1 i.fa-lg:span nav ul li a li:first-child a header:before, header h1 i.fa-lg:span nav ul li a li:first-child a header:after {
+                    width: 300px; }
 
   section.focal,
   section.content1,
+  section.content2,
+  footer,
+  header nav,
   section.content2,
   footer {
     width: 900px;
@@ -330,25 +336,33 @@ footer h4[lang=en], footer h4[lang=ar], footer h4[lang=ru] {
 
   .col-3 {
     float: left;
-    width: 30%;
+    width: 32%;
+    margin-left: 2%;
+    float: left;
     margin-left: 5%; }
+    .col-3:first-child {
+      margin-left: 0; }
 
   .col-3:first-child {
     margin-left: 0; }
 
   .col-4 {
-    width: 22%;
+    width: 23.5%;
+    margin-left: 2%;
+    float: left;
     margin-left: 4%;
     float: left; }
+    .col-4:first-child {
+      margin-left: 0; }
 
   .col-4:first-child {
     margin-left: 0; }
 
-  section.content1 h3 {
+  section.content1 h3, section.content2 h3, footer h3, header nav h3 {
     font-size: 1.999rem;
     font-weight: 100; }
 
-  section.content1 h3 .fa-2x {
+  section.content1 h3 .fa-2x, section.content2 h3 .fa-2x, footer h3 .fa-2x, header nav h3 .fa-2x {
     font-size: 1.999rem;
     padding-right: 1rem; }
 
@@ -376,55 +390,51 @@ footer h4[lang=en], footer h4[lang=ar], footer h4[lang=ru] {
   header {
     width: 1400px;
     margin: 0 auto; }
-    header header:before,
-    header header:after {
-      width: 450px; }
-      header header:before h1,
-      header header:after h1 {
-        width: 100%;
-        color: #7C593C; }
-        header header:before h1 i.fa-lg,
-        header header:after h1 i.fa-lg {
-          display: inline;
-          color: #7C593C;
-          vertical-align: baseline;
+    header h1 {
+      width: 100%;
+      color: #7C593C;
+      font-size: 4.998rem; }
+      header h1 i.fa-lg {
+        display: inline;
+        color: #7C593C;
+        vertical-align: baseline;
+        float: none;
+        font-size: 4rem;
+        line-height: 6.3968rem; }
+        header h1 i.fa-lg:span {
           float: none;
-          font-size: 4rem;
-          line-height: 6.3968rem; }
-          header header:before h1 i.fa-lg i.fa-lg ~ span,
-          header header:after h1 i.fa-lg i.fa-lg ~ span {
-            float: none;
-            letter-spacing: 0.25rem;
-            font-size: 3.998rem;
-            /**1 lines of 3.998 * 1.6 = 6.3968**/
-            text-align: left; }
-            header header:before h1 i.fa-lg i.fa-lg ~ span nav,
-            header header:after h1 i.fa-lg i.fa-lg ~ span nav {
-              position: static;
-              clear: both;
-              width: 100%;
-              padding: 0; }
-              header header:before h1 i.fa-lg i.fa-lg ~ span nav ul li,
-              header header:after h1 i.fa-lg i.fa-lg ~ span nav ul li {
-                width: 20%;
-                float: left;
+          letter-spacing: 0.25rem;
+          font-size: 3.998rem;
+          /**1 lines of 3.998 * 1.6 = 6.3968**/
+          text-align: center; }
+          header h1 i.fa-lg:span nav {
+            position: static;
+            clear: both;
+            width: 100%;
+            padding: 0; }
+            header h1 i.fa-lg:span nav ul li {
+              width: 20%;
+              float: left;
+              background-color: #fff; }
+              header h1 i.fa-lg:span nav ul li a {
+                font-size: 1.414rem;
+                line-height: 2rem;
+                min-height: 2rem;
+                border: none;
+                border-left: 1px solid #d4d4d4;
+                padding: 0 1.0rem;
+                margin: 1.0rem 0;
                 background-color: #fff; }
-                header header:before h1 i.fa-lg i.fa-lg ~ span nav ul li a,
-                header header:after h1 i.fa-lg i.fa-lg ~ span nav ul li a {
-                  font-size: 1.414rem;
-                  line-height: 2rem;
-                  min-height: 2rem;
-                  border: none;
-                  border-left: 1px solid #d4d4d4;
-                  padding: 0 1.0rem;
-                  margin: 1.0rem 0;
-                  background-color: #fff; }
-                  header header:before h1 i.fa-lg i.fa-lg ~ span nav ul li a li:first-child a,
-                  header header:after h1 i.fa-lg i.fa-lg ~ span nav ul li a li:first-child a {
-                    border-left: none; }
+                header h1 i.fa-lg:span nav ul li a li:first-child a {
+                  border-left: none; }
+                  header h1 i.fa-lg:span nav ul li a li:first-child a header:before, header h1 i.fa-lg:span nav ul li a li:first-child a header:after {
+                    width: 450px; }
 
   section.focal,
   section.content1,
+  section.content2,
+  footer,
+  header nav,
   section.content2,
   footer {
     width: 1400px;
@@ -441,25 +451,31 @@ footer h4[lang=en], footer h4[lang=ar], footer h4[lang=ru] {
 
   .col-3 {
     float: left;
-    width: 30%;
-    margin-left: 5%; }
+    width: 32%;
+    margin-left: 2%;
+    float: left; }
+    .col-3:first-child {
+      margin-left: 0; }
 
   .col-3:first-child {
     margin-left: 0; }
 
   .col-4 {
-    width: 22%;
-    margin-left: 4%;
+    width: 23.5%;
+    margin-left: 2%;
+    float: left;
     float: left; }
+    .col-4:first-child {
+      margin-left: 0; }
 
   .col-4:first-child {
     margin-left: 0; }
 
-  section.content1 h3 {
+  section.content1 h3, section.content2 h3, footer h3, header nav h3 {
     font-size: 2.827rem;
     font-weight: 100; }
 
-  section.content1 h3 .fa-2x {
+  section.content1 h3 .fa-2x, section.content2 h3 .fa-2x, footer h3 .fa-2x, header nav h3 .fa-2x {
     font-size: 2.827rem;
     padding-right: 1rem;
     vertical-align: middle; }
@@ -477,8 +493,9 @@ footer h4[lang=en], footer h4[lang=ar], footer h4[lang=ru] {
   footer p {
     font-size: 1.414rem;
     letter-spacing: 0.2rem; }
-    footer p:last-child {
-      color: #d4d4d4; }
+
+  footer p:last-child {
+    color: #d4d4d4; }
 
   footer .fa-circle {
     color: #89C0C9; }

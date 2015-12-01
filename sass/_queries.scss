@@ -1,0 +1,17 @@
+@mixin small() {
+    @media all and (min-width: $breakpoint-small - 105) and (max-width:$breakpoint-medium){
+        @content;
+  }
+}
+
+@mixin medium() {
+    @media all and (min-width: $breakpoint-medium + 1) and (max-width: $breakpoint-large){
+        @content;
+  }
+}
+
+@mixin large() {
+    @media all and (min-width:$breakpoint-large + 1){
+        @content;
+  }
+}
