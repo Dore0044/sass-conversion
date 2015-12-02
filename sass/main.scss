@@ -308,7 +308,7 @@ footer {
       margin: 0 auto;    
     }
     .col-4{
-      @include equalSpaced(4, 2%, 100%);
+      @include equalSpaced(4, 1%, 100%);
       float:left;
     }
     section.content2 h4{
@@ -414,7 +414,7 @@ footer {
       margin-left: 0;
     }
     .col-4{
-      @include equalSpaced(4, 2%, 100%);
+      @include equalSpaced(4, 5%, 100%);
       margin-left: 4%;
       float:left;
     }
